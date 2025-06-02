@@ -73,7 +73,7 @@ edad = 21
 
 if nombre == \"Juan\" and edad \>= 18:
 
-print(\"Puede acceder al sitio\")
+  print(\"Puede acceder al sitio\")
 ```
 
 ### Uso de or
@@ -86,7 +86,7 @@ acompañado = True
 
 if edad \>= 18 or acompañado:
 
-print(\"Puede entrar al local\")
+  print(\"Puede entrar al local\")
 ```
 
 ## Expresiones Booleanas
@@ -98,7 +98,7 @@ activo = True
 
 if activo:
 
-print(\"El sistema está activo\")
+  print(\"El sistema está activo\")
 ```
 
 ## If Statements
@@ -112,7 +112,7 @@ edad = 20
 
 if edad \>= 18:
 
-print(\"Eres mayor de edad\")
+  print(\"Eres mayor de edad\")
 ```
 
 ### If-Else
@@ -123,11 +123,11 @@ edad = 16
 
 if edad \>= 18:
 
-print(\"Eres mayor de edad\")
+  print(\"Eres mayor de edad\")
 
 else:
 
-print(\"Eres menor de edad\")
+  print(\"Eres menor de edad\")
 ```
 
 ### If-Elif-Else
@@ -138,15 +138,15 @@ edad = 15
 
 if edad \>= 18:
 
-print(\"Mayor de edad\")
+  print(\"Mayor de edad\")
 
 elif edad \>= 13:
 
-print(\"Adolescente\")
+  print(\"Adolescente\")
 
 else:
 
-print(\"Niño\")
+  print(\"Niño\")
 ```
 
 ## If Statements Anidados
@@ -159,17 +159,17 @@ ciudadano = True
 
 if edad \>= 18:
 
-if ciudadano:
+  if ciudadano:
 
-print(\"Puedes votar\")
+    print(\"Puedes votar\")
+
+  else:
+
+    print(\"No eres ciudadano\")
 
 else:
 
-print(\"No eres ciudadano\")
-
-else:
-
-print(\"Eres menor de edad\")
+  print(\"Eres menor de edad\")
 ```
 
 ## Switch-Case en Python
@@ -182,35 +182,35 @@ opcion = 2
 
 if opcion == 1:
 
-print(\"Seleccionaste 1\")
+  print(\"Seleccionaste 1\")
 
 elif opcion == 2:
 
-print(\"Seleccionaste 2\")
+  print(\"Seleccionaste 2\")
 
 elif opcion == 3:
 
-print(\"Seleccionaste 3\")
+  print(\"Seleccionaste 3\")
 
 else:
 
-print(\"Opción no válida\")
+  print(\"Opción no válida\")
 ```
 Ejemplo con diccionario:
 ```python
 def switch(opcion):
 
-opciones = {
+  opciones = {
 
-1: \"Seleccionaste 1\",
+    1: \"Seleccionaste 1\",
 
-2: \"Seleccionaste 2\",
+    2: \"Seleccionaste 2\",
 
-3: \"Seleccionaste 3\"
+    3: \"Seleccionaste 3\"
 
-}
+  }
 
-return opciones.get(opcion, \"Opción no válida\")
+  return opciones.get(opcion, \"Opción no válida\")
 
 print(switch(2))
 ```
