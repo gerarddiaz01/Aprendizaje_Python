@@ -13,19 +13,4 @@ Cada carpeta representa un tema fundamental en Python. En su interior encontrar�
 
 > ⚠️ **Nota importante:** Estos apuntes fueron redactados mientras aprendía, por lo tanto es posible que encuentres errores o imprecisiones. He decidido mantenerlos tal como los escribí, porque forman parte de mi evolución como desarrollador.
 
-## 📂 Estructura de carpetas
-
-```text
-Condicionales/
-Variables y Tipos de Datos/
-Listas y Bucles/
-Tuplas y Sets/
-Diccionarios/
-Funciones/
-Arrays/
-Manipulación de archivos/
-Programación Orientada a Objetos/
-Estadística Aplicada/
-Principios SOLID/
-```
 > 💬 Contribuciones: Si ves algún error, tienes sugerencias o te gustaría aportar ejercicios, ¡toda colaboración es bienvenida!
