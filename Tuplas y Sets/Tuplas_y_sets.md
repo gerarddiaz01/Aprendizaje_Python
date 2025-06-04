@@ -127,7 +127,7 @@ reversed(tupla) # lista en orden inverso
 ```python
 tupla1 = (1, 2, 3)
 
-tupla2 = (a, b, c)
+tupla2 = ('a', 'b', 'c')
 
 tupla_combinada = tuple(zip(tupla1, tupla2))
 
@@ -151,9 +151,9 @@ alumnos[0][0] # "Ana"
 ```python
 alumnos[1:] # (("Luis", 8), ("Sara", 9, 10))
 
-alumnos[0:2] El 2 no está incluido, es -1 # (("Ana", 10), ("Luis", 8))
+alumnos[0:2] # (("Ana", 10), ("Luis", 8))
 
-alumnos[2] [0:2] De la tercera tupla, coge el elemento 0 y el 1 # ("Sara", 9)
+alumnos[2][0:2] # ("Sara", 9)
 ```
 🐁 Tupla unitaria
 ```python
@@ -187,9 +187,9 @@ a un número igual de variables.
 ```python
 titulo, autor = ("El aleph", "Jorge Luis Borges")
 
-print(titulo)  # Salida: El aleph
+print(titulo)  # Salida: El aleph
 
-print(autor)   # Salida: Jorge Luis Borges
+print(autor)   # Salida: Jorge Luis Borges
 ```
 -   Aquí, la tupla ("El aleph", "Jorge Luis Borges") se desempaqueta
     en las variables titulo y autor.
@@ -199,15 +199,13 @@ print(autor)   # Salida: Jorge Luis Borges
 
 ### Error común
 ```python
-nombre, edad = persona \# Error: not enough values to unpack
+nombre, edad = persona # Error: not enough values to unpack
 ```
 # 🐍 Conjuntos
 ```python
-Lista: [ ]
-
-Tupla: ( )
-
-Set: { }
+# Lista: [ ]
+# Tupla: ( )
+# Set: { }
 ```
 ## ¿Qué es un SET?
 
@@ -245,7 +243,7 @@ Podemos comprobar pertenencias, usar in para ver si un elemento está dentro del
 
 ## 🤐 ¿Por qué los sets no tienen índices?
 
-Los **sets** no están ordenados internamente. Cada elemento tiene un **hash**, que permite a Python ubicarlo en un \"bucket\" específico.
+Los **sets** no están ordenados internamente. Cada elemento tiene un **hash**, que permite a Python ubicarlo en un "bucket" específico.
 Gracias a esto:
 
 -   Las **búsquedas son muy rápidas**, más que en listas.
@@ -263,7 +261,7 @@ mi_set = {"a", "b", "c"}
 ```python
 mi_set = {1, 2, 3}
 
-mi_set.add(4) \# {1, 2, 3, 4}
+mi_set.add(4) # {1, 2, 3, 4}
 ```
 ## ➖ Eliminar elementos de un set
 
@@ -328,7 +326,7 @@ tiene, exclusivamente.
 ```python
 A - B # {1, 2}
 ```
-### Diferencia Simétrica (symmetric_difference() o \^)
+### Diferencia Simétrica (symmetric_difference() o ^)
 ```python
 A ^ B # {1, 2, 4, 5} (elementos que están en un solo set)
 ```

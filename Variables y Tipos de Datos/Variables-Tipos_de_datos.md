@@ -30,18 +30,12 @@ print("Hola, mundo!")
 
 ### Ejemplo de línea de comandos:
 ```python
-$ python
-
->>> 3 + 2
-
-5
-
->>> exit()
+3 + 2
+# Salida: 5
 ```
 ### Ejemplo de script:
 ```python
 # script.py
-
 print("Hola, mundo!")
 ```
 ## 3. Variables
@@ -54,21 +48,15 @@ print("Hola, mundo!")
 ### Ejemplo de declaración e inicialización:
 ```python
 sumaTotal = 12
-
 precio = 20.5
-
 nota = "Hola"
-
 terminado = False
 ```
 ### Modificación de variables:
 ```python
 sumaTotal = sumaTotal + 4
-
 precio = 3.4 + 4.6
-
 nota = "Adiós"
-
 terminado = True
 ```
 ## 4. Asignación Múltiple
@@ -79,11 +67,9 @@ terminado = True
 ### Ejemplo:
 ```python
 x = y = z = 10
-
 print(x, y, z) # Salida: 10 10 10
 
 x, y, z = 10, 20, 30
-
 print(x, y, z) # Salida: 10 20 30
 ```
 ## 5. Pedir Valores con input()
@@ -94,13 +80,11 @@ print(x, y, z) # Salida: 10 20 30
 ### Ejemplo:
 ```python
 nombre = input("¿Cómo te llamas? ")
-
 print("Me alegro de conocerte,", nombre)
 ```
 ### Ejemplo con conversión de tipo:
 ```python
 edad = int(input("¿Cuántos años tienes? "))
-
 print("Has vivido aproximadamente", 365 * edad, "días")
 ```
 ## 6. Tipos de Datos y Conversión
@@ -112,11 +96,8 @@ print("Has vivido aproximadamente", 365 * edad, "días")
 ### Ejemplo:
 ```python
 numero_entero = 42
-
 numero_decimal = float(numero_entero)
-
 print(type(numero_entero)) # Salida: <class 'int'>
-
 print(type(numero_decimal)) # Salida: <class 'float'>
 ```
 ## 7. Strings (Cadenas de Caracteres)
@@ -132,168 +113,112 @@ con '''
 ### Ejemplo:
 ```python
 nombre = "juan gomez"
-
 print(nombre.title()) # Salida: Juan Gomez
-
 print(nombre.upper()) # Salida: JUAN GOMEZ
 ```
 -   title()
 ```python
 nombre = 'juan gomez'
-
 print(nombre.title())
-
-Juan Gomez
+# Salida: Juan Gomez
 ```
 -   upper()
 ```python
 nombre = 'juan gomez'
-
 print(nombre.upper())
-
-JUAN GOMEZ
+# Salida: JUAN GOMEZ
 ```
-EJEMPLO: crear una lista de todo en mayusculas teniendo algo en
-minusculas.
+EJEMPLO: crear una lista de todo en mayúsculas teniendo algo en
+minúsculas.
 ```python
-alfabeto =
-["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-
+alfabeto = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 alfabeto_mayusculas = []
-
 for letra in alfabeto:
-
-alfabeto_mayusculas.append(letra.upper())
+    alfabeto_mayusculas.append(letra.upper())
 ```
 -   lower()
 ```python
 nombre = 'juan gomez'
-
-print(nombre.upper())
-
-juan gomez
+print(nombre.lower())
+# Salida: juan gomez
 ```
 -   rstrip()
-
 Sirve para eliminar espacios en blanco de la derecha.
 ```python
 nombre = "python "
-
-nombre.rstrip()
-
-"python"
+print(nombre.rstrip())
+# Salida: python
 ```
 -   lstrip()
+Sirve para eliminar espacios a la izquierda.
 ```python
-Elimina espacios a la izquierda
-
 nombre = " python"
-
-nombre.lstrip()
-
-"python"
+print(nombre.lstrip())
+# Salida: python
 ```
 -   strip()
-
-Elimina espacios de la derecha e izquierda
+Elimina espacios de la derecha e izquierda.
 ```python
 nombre = " python "
-
-nombre.strip()
-
-"python"
+print(nombre.strip())
+# Salida: python
 ```
 -   replace
-
-Sustituir partes del string
+Sustituir partes del string.
 ```python
 string = "Hola.Mundo"
-
-print(string.replace("."," "))
-
-Hola Mundo
+print(string.replace(".", " "))
+# Salida: Hola Mundo
 ```
 find()
-
 Encontrar un string dentro de otro string, te da la posición empezando
 en 0, si te da -1 significa que no se ha encontrado.
 ```python
 string = "Hola Mundo"
-
-print(string.find("Hol"))
-
-0
-
-print(string.find("do"))
-
-8
-
-print(string.find("hey"))
-
--1
+print(string.find("Hol")) # Salida: 0
+print(string.find("do"))  # Salida: 8
+print(string.find("hey")) # Salida: -1
 ```
 -   startswith()
-
-Comprueba si el string empieza de cierta forma
+Comprueba si el string empieza de cierta forma.
 ```python
 string = "Hola Mundo"
-
-print(string.startswith("Hol"))
-
-True
-
-print(string.startswith("Mun"))
-
-False
+print(string.startswith("Hol")) # Salida: True
+print(string.startswith("Mun")) # Salida: False
 ```
 -   endswith()
 ```python
 string = "Hola Mundo"
-
-print(string.endswith("do")
-
-True
-
-print(string.endswith("Ho"))
-
-False
+print(string.endswith("do")) # Salida: True
+print(string.endswith("Ho")) # Salida: False
 ```
 **Concatenación de strings:**
 ```python
 nombre = "juan"
-
 apellido = "gomez"
-
-nombre_completo = nombre + "" + apellido # Salida: juan gomez
-
+nombre_completo = nombre + " " + apellido # Salida: juan gomez
 print("Hola, " + nombre_completo.title() + "!") # Salida: ¡Hola, Juan Gomez!
 ```
-### Tabs /t:
+### Tabs \t:
 ```python
 print("Python")
-
-Python
+# Salida: Python
 
 print("\tPython")
-
-    Python
+# Salida:     Python
 ```
 ### Salto de linea \n:
 ```python
 print("Lenguajes:\nPython\nJavaScript\nSolidity")
-
-Lenguajes:
-
-Python
-
-JavaScript
-
-Solidity
+# Salida:
+# Lenguajes:
+# Python
+# JavaScript
+# Solidity
 ```
 ### Acceso a índices:
 ```python
 nombre = "Juan"
-
 print(nombre[0]) # Salida: J
 ```
 ## 8. Números y Operaciones Aritméticas
@@ -305,9 +230,7 @@ print(nombre[0]) # Salida: J
 ### Ejemplo:
 ```python
 print(2 + 3) # Salida: 5
-
 print(3 ** 2) # Salida: 9
-
 print(4 % 3) # Salida: 1
 ```
 ### Precisión en flotantes:
@@ -322,9 +245,7 @@ print(0.2 + 0.1) # Salida: 0.30000000000000004
 ### Ejemplo:
 ```python
 numero_dias = 365
-
 mensaje = "El año tiene " + str(numero_dias) + " días"
-
 print(mensaje) # Salida: El año tiene 365 días
 ```
 ## 10. Comentarios
@@ -336,6 +257,5 @@ print(mensaje) # Salida: El año tiene 365 días
 ### Ejemplo:
 ```python
 # Esto es un comentario
-
 print("Hola, mundo!") # Esto también es un comentario
 ```
