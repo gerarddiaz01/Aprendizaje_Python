@@ -315,11 +315,10 @@ print(multiplicar(y=5, x=4)) # equivalente, cambiando el orden de los argumentos
 ```
 
 **Salida:**
-
+```python
 20
-
 20
-
+```
 En este caso, especificamos x=4 y y=5, o incluso invertimos el orden
 y=5, x=4. Ambos llamados son válidos y Python asigna correctamente los
 valores a cada parámetro por nombre, ignorando el orden.
@@ -375,11 +374,10 @@ saludar("Ana", "Buenos días")
 ```
 
 **Salida:**
-
+```python
 Hola, Carlos!
-
 Buenos días, Ana!
-
+```
 En la definición de saludar, el segundo parámetro saludo tiene como
 valor por defecto "Hola". Al llamar saludar("Carlos"), no
 especificamos el segundo argumento, por lo que dentro de la función
@@ -400,11 +398,10 @@ print(elevar(5, 3)) # Eleva 5 al cubo (sobrescribe el valor por defecto)
 ```
 
 **Salida:**
-
+```python
 25
-
 125
-
+```
 La primera llamada elevar(5) devolvió 25 porque se interpretó como 5²
 (potencia=2 por omisión). La segunda llamada elevar(5, 3) devolvió 125,
 ya que especificamos potencia=3.
@@ -428,11 +425,8 @@ print(elevar(potencia=2, numero=5)) # Invierte el orden de los argumentos nombra
 **Salida:**
 ```python
 25
-
 25
-
 25
-
 25
 ```
 Las cuatro formas producen 25 como resultado. Son maneras diferentes de
@@ -541,7 +535,6 @@ print("Resultado:", resultado)
 **Salida:**
 ```python
 5
-
 Resultado: None
 ```
 En este código, la función sumar_print imprime 5, pero luego al hacer
@@ -747,8 +740,9 @@ def mostrar_magos(lista_magos):
 
 magos = ["merlin", "harry houdini", "juan tamariz"]
 mostrar_magos(magos)
-
-# Salida:
+```
+**Salida:**
+```python
 # Merlin
 # Harry Houdini
 # Juan Tamariz
