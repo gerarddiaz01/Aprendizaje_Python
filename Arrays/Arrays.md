@@ -1,4 +1,4 @@
-# Clase 1: Teoría de Arrays y Módulos en Python
+# Teoría de Arrays y Módulos en Python
 
 ## **Módulos en Python**
 
