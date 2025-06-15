@@ -1,7 +1,5 @@
 # Programación Orientada a Objetos en Python
 
-## (Parte 1)
-
 # Introducción a la Programación Orientada a Objetos (POO)
 La **Programación Orientada a Objetos (POO)** es un paradigma de programación que se basa en organizar el código en torno a **objetos** en lugar de funciones y datos separados. En vez de tener datos sueltos y procedimientos independientes, la POO propone unir los datos y la funcionalidad en una sola estructura, formando entidades llamadas **objetos** que interactúan entre sí. En otras palabras, un objeto combina tanto **información (datos)** como **comportamiento (operaciones)** en una unidad cohesionada.
 
@@ -464,7 +462,7 @@ En conclusión, los métodos especiales permiten personalizar el comportamiento 
 
 Con esto cubrimos los principales conceptos avanzados de POO en Python. Ahora, a practicar con ejercicios que pongan en juego herencia, composición, polimorfismo y métodos especiales. Intenta resolverlos por tu cuenta y luego compara con las soluciones propuestas. Cada ejercicio incluye el enunciado, una posible estrategia (estructura sugerida) y una solución comentada paso a paso.
 
-# Programación Orientada a Objetos en Python: Miembros Privados, Importaciones y Guía de Estilo
+# Miembros Privados, Importaciones y Guía de Estilo
 
 En este documento continuamos profundizando en la **Programación Orientada a Objetos (POO)** en Python, abordando temas esenciales como:
 - Miembros privados (atributos y métodos "ocultos" dentro de una clase)
