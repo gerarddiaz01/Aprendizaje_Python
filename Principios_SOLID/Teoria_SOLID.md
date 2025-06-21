@@ -2,7 +2,7 @@
 
 ## Principios SOLID y Repaso de POO en Python
 
-### Clase 01: Repaso a la Programación Orientada a Objetos (POO)
+### Repaso a la Programación Orientada a Objetos (POO)
 
 La **programación orientada a objetos (POO)** es un paradigma de desarrollo de software basado en el concepto de "objetos". Un objeto representa una entidad del mundo real con datos (**atributos** o **propiedades**) y comportamientos (**métodos** o **funciones**). En lugar de estructurar el código en funciones y datos separados, la POO organiza el programa en torno a objetos que interactúan entre sí. Esto permite modelar sistemas complejos de forma más natural, ya que pensamos en términos de objetos (p.ej., un **Coche**, un **Usuario**, un **Pedido**) con sus propias características y acciones.
 
@@ -108,105 +108,9 @@ for animal in animales:
 
 Cada iteración llamará a `hacer_sonido()` del objeto actual en la lista. Gracias al polimorfismo, el resultado será diferente según si el objeto es **Perro**, **Gato** o **Vaca**, pero `presentar_animal` no necesita saberlo; trata a todos simplemente como **Animal**. Esto demuestra cómo objetos de clases distintas pueden ser tratados de manera uniforme a la vez que actúan de forma distinta internamente.
 
-# Ejercicios prácticos
-
-- **Ejercicio 1:** Crea una clase `Circulo` que represente un círculo. La clase debe inicializarse con el radio del círculo y deberá tener:
-  - Un atributo de clase que cuente cuántos círculos se han creado en total.
-  - Un método de instancia `area()` que calcule el área del círculo (usa `math.pi * radio^2`).
-  - Un método de instancia `perimetro()` que calcule el perímetro (longitud de la circunferencia) del círculo (usa `2 * math.pi * radio`).
-  - Un método de clase `total_circulos()` que devuelva cuántos círculos se han creado (basado en el atributo de clase).
-
-Pista: Utiliza `import math` para obtener el valor de π (`math.pi`). Incrementa el contador de círculos en el constructor (`__init__`).
-
-**Estructura sugerida:**
-
-```python
-class Circulo:
-    total_creados = 0
-    def __init__(self, radio):
-        self.radio = radio
-        Circulo.total_creados += 1
-    def area(self):
-        pass
-    def perimetro(self):
-        pass
-    @classmethod
-    def total_circulos(cls):
-        pass
-```
-
-**Solución:**
-
-```python
-import math
-class Circulo:
-    total_creados = 0
-    def __init__(self, radio):
-        self.radio = radio
-        Circulo.total_creados += 1
-    def area(self):
-        return math.pi * self.radio ** 2
-    def perimetro(self):
-        return 2 * math.pi * self.radio
-    @classmethod
-    def total_circulos(cls):
-        return cls.total_creados
-# Ejemplo de uso
-c1 = Circulo(2)
-c2 = Circulo(3)
-print(c1.area(), c1.perimetro())
-print(Circulo.total_circulos())
-```
-
-Explicación: Definimos la clase **Circulo** con un atributo de clase `total_creados` que se incrementa en el constructor cada vez que se instancia un nuevo círculo. Los métodos `area()` y `perimetro()` utilizan el atributo de instancia `radio` junto con constantes matemáticas (`math.pi`) para calcular los resultados. El método de clase `total_circulos()` retorna el contador de instancias creadas. Al final, instanciamos un par de círculos (`c1` y `c2`) y comprobamos que los métodos funcionan correctamente y que el contador de instancias se actualiza.
-
-- **Ejercicio 2:** Implementa un modelo de herencia simple. Crea una clase base `Vehiculo` con un atributo `marca` y un método `describir()` que imprima un mensaje con la marca. Luego crea una subclase `Coche` que herede de `Vehiculo`, agregue un atributo `modelo` y sobrescriba el método `describir()` para incluir también el modelo en el mensaje. Por último, comprueba que al instanciar un `Coche` puedas acceder al atributo `marca` (heredado) y que su método `describir()` muestre ambos datos.
-
-Pista: Recuerda llamar al constructor de la clase padre desde `Coche.__init__` para asignar la marca. La función `super()` te será útil. Al sobreescribir `describir()` en `Coche`, puedes optar por reusar el método del padre (llamando a `super().describir()`) y luego agregar más información, o construir el mensaje completo en el método hijo.
-
-**Estructura sugerida:**
-
-```python
-class Vehiculo:
-    def __init__(self, marca):
-        self.marca = marca
-    def describir(self):
-        pass
-class Coche(Vehiculo):
-    def __init__(self, marca, modelo):
-        super().__init__(marca)
-        self.modelo = modelo
-    def describir(self):
-        pass
-```
-
-**Solución:**
-
-```python
-class Vehiculo:
-    def __init__(self, marca):
-        self.marca = marca
-    def describir(self):
-        print(f"Marca: {self.marca}")
-class Coche(Vehiculo):
-    def __init__(self, marca, modelo):
-        super().__init__(marca)
-        self.modelo = modelo
-    def describir(self):
-        super().describir()
-        print(f"Modelo: {self.modelo}")
-# Ejemplo de uso
-c = Coche("Toyota", "Corolla")
-c.describir()
-```
-
-Explicación: La clase **Vehiculo** define el atributo `marca` y un método `describir()`. La clase **Coche** hereda de Vehiculo, por lo que no necesita redeclarar `marca`; solo añade `modelo`. En el constructor de Coche usamos `super().__init__(marca)` para que la clase base se encargue de inicializar la marca. Luego en `describir()`, construimos un mensaje que incluye tanto la marca (heredada) como el modelo. La prueba muestra que Coche puede usar tanto atributos heredados (`c.marca`) como su propio atributo (`c.modelo`), y que su método sobreescrito proporciona la información combinada.
-
-Con estos ejercicios, has practicado los conceptos fundamentales de POO: definición de clases, creación de objetos, encapsulación (al usar atributos de instancia y controlar su acceso a través de métodos), herencia (extendiendo Vehiculo en Coche), y polimorfismo a través de la sobreescritura de métodos (`describir` se comporta distinto en Vehiculo y Coche). En las próximas clases profundizaremos en principios de diseño que nos ayudarán a crear clases y jerarquías más sólidas, mantenibles y flexibles.
-
 ---
 
-## Clase 02: Herencia vs Composición
+## Herencia vs Composición
 
 A la hora de diseñar la estructura de un programa orientado a objetos, dos mecanismos muy importantes para reutilizar código y estructurar funcionalidades son la **herencia** y la **composición**. Ambos permiten construir sistemas complejos a partir de componentes más simples, pero funcionan de manera distinta y es crucial saber escoger cuál conviene en cada situación.
 
@@ -307,46 +211,8 @@ Antes de introducir los principios **SOLID** (que son principios de diseño orie
 - Usa composición para construir funcionalidades combinando componentes, especialmente cuando necesitas flexibilidad o no hay una jerarquía natural.
 - Mantén tus clases cohesivas (una responsabilidad principal) y desacopladas de los detalles de otras (comunicándose a través de abstracciones, no con su lógica interna).
 
-# Ejercicios prácticos
-
-- **Ejercicio 1:** Tienes una clase **Rueda** y quieres crear una clase **Coche**. Decide cómo relacionarlas:
-  - Opción A: Coche hereda de Rueda.
-  - Opción B: Coche tiene instancias de Rueda.
-
-¿Cuál crees que es correcta y por qué? Luego, implementa la solución elegida:
-
-La clase **Rueda** puede tener un atributo `diametro` (por ejemplo, 16 pulgadas) y quizás un método `rodar()` que imprima algo como "Rueda rodando...". La clase **Coche** debe, en su constructor, crear 4 objetos **Rueda** (asígnalos a una lista o a atributos como `rueda1`, `rueda2`, ...). Añade un método `mover()` en **Coche** que haga que sus ruedas rueden (llamando al método correspondiente de cada rueda) y que imprima "Coche avanzando...".
-
-Pista: La relación lógica es "un coche tiene cuatro ruedas", no "un coche es una rueda". Piensa cómo usar la composición para reflejar eso.
-
-**Solución:**
-
-```python
-class Rueda:
-    def __init__(self, diametro):
-        self.diametro = diametro
-    def rodar(self):
-        print("Rueda rodando...")
-
-class Coche:
-    def __init__(self):
-        self.ruedas = [Rueda(16) for _ in range(4)]
-    def mover(self):
-        for rueda in self.ruedas:
-            rueda.rodar()
-        print("Coche avanzando...")
-# Ejemplo de uso
-mi_coche = Coche()
-mi_coche.mover()
-```
-
-**Explicación:** Aquí **Coche** no hereda de **Rueda** (lo cual sería ilógico), sino que crea internamente 4 ruedas en su construcción. Al llamar `mi_coche.mover()`, el coche delega la acción a cada una de sus ruedas (`rueda.rodar()`) y luego imprime su propio mensaje. Este diseño tiene alta cohesión (la clase **Rueda** se encarga solo de rodar, la clase **Coche** se encarga de coordinar sus ruedas y representar el vehículo) y bajo acoplamiento (podríamos modificar la implementación de **Rueda** o reemplazarla por otra clase de ruedas sin tener que cambiar la clase **Coche**, mientras siga teniendo el método `rodar()`). También es flexible: podríamos tener distintos tipos de ruedas (invierno, verano, etc., quizás subclases de **Rueda**) e instalarlas en el coche sin modificar la clase **Coche**. Este es un ejemplo claro de composición ganándole a una herencia inapropiada.
-
 ---
-
-## Clase 03: Principio de Responsabilidad Única (Single Responsibility Principle – SRP)
-
-### Introducción a SOLID
+# Introducción a SOLID
 
 A partir de esta clase, vamos a estudiar los principios **SOLID**, un conjunto de cinco principios de diseño orientado a objetos formulados por Robert C. Martin (conocido como "Uncle Bob") a finales de los años 90. Estos principios son pautas que ayudan a escribir código más mantenible, extensible y robusto. En particular, están enfocados en lograr sistemas con alta cohesión y bajo acoplamiento, como discutimos anteriormente.
 
@@ -361,7 +227,7 @@ Estos principios fueron introducidos por primera vez por el famoso ingeniero de 
 
 Antes de entrar al primero de ellos, recordemos brevemente: cohesión y acoplamiento. Los principios **SOLID**, en conjunto, buscan aumentar la cohesión (cada módulo con responsabilidad clara) y reducir el acoplamiento (mínimas dependencias innecesarias entre módulos). Veremos que el **SRP** está directamente relacionado con mantener alta cohesión, el **DIP** con reducir acoplamiento, etc.
 
-### Principio de Responsabilidad Única (SRP)
+# Principio de Responsabilidad Única (Single Responsibility Principle – SRP)
 
 El **Principio de Responsabilidad Única** establece que "una clase debe tener una, y solo una, razón para cambiar". Dicho de otro modo, cada clase (o módulo) debería encargarse de una sola responsabilidad o funcionalidad dentro del sistema.
 
@@ -369,7 +235,7 @@ Este principio aboga por la claridad de propósito de las clases:
 - Si una clase se dedica exclusivamente a una cosa, cualquier cambio en esa área de funcionalidad resultará en modificaciones a esa clase (lo cual es lógico). Y solo debería modificarse si hay cambios en esa responsabilidad.
 - Si en cambio una clase hace dos o más cosas diferentes, podríamos tener múltiples motivos independientes para alterarla, rompiendo el principio. Por ejemplo, imaginemos una clase **GestorInforme** que calcula datos y además escribe esos datos a un archivo. Son dos responsabilidades distintas (cálculo y persistencia). Un cambio en el formato de archivo afectaría a la clase, aunque no tenga que ver con el cálculo, y viceversa.
 
-#### ¿Por qué es beneficioso el SRP? Varias razones:
+### ¿Por qué es beneficioso el SRP? Varias razones:
 - **Más fácil de entender:** Si una clase tiene una sola responsabilidad, su nombre y sus métodos deben reflejar claramente esa tarea. Es más fácil para un desarrollador leerla y entender qué hace.
 - **Mantenimiento más sencillo:** Los cambios en requisitos tienden a estar aislados. Si se altera la lógica de negocio de cierta funcionalidad, solo debería requerir cambios en la clase encargada de esa funcionalidad. No habrá efectos colaterales inesperados en otras partes, porque esas otras partes están en clases separadas.
 - **Mayor cohesión:** El SRP prácticamente define la cohesión alta. Al cumplir SRP, estamos asegurando que la clase agrupa funcionalidades altamente relacionadas (de hecho, una funcionalidad).
@@ -377,7 +243,7 @@ Este principio aboga por la claridad de propósito de las clases:
 
 En resumen, aplicar SRP significa evitar las clases tipo "navaja suiza" o "Dios" (God objects) que hacen de todo un poco, y en su lugar tener muchas clases, cada una experta en su cometido.
 
-#### Un ejemplo concreto (violación vs. cumplimiento del SRP):
+### Un ejemplo concreto (violación vs. cumplimiento del SRP):
 
 Imaginemos una situación sencilla: necesitamos generar un informe a partir de unos datos y guardar ese informe en un archivo. Podemos hacerlo de dos maneras:
 - **Clase única que hace todo (viola SRP):** Una clase que tome los datos, genere el contenido del informe y además escriba ese contenido en un archivo.
@@ -424,152 +290,21 @@ Cada clase tiene una única responsabilidad y, por ende, una razón para cambiar
 
 **Beneficios observados:** Más cohesión (cada clase es experta en lo suyo) y menos acoplamiento (la generación de informes no depende de detalles de archivos, y el exportador no depende de cómo se calculan los datos).
 
-#### Ventajas del SRP (resumiendo los puntos de las diapositivas):
+### Ventajas del SRP:
 1. **Claridad de la responsabilidad:** Al tener una clase un objetivo claro, es más fácil nombrarla, documentarla y entenderla.
 2. **Facilita el mantenimiento:** Los cambios se localizan. Un cambio = una clase a modificar, idealmente.
 3. **Promueve la cohesión:** La clase concentra funciones afines. (De hecho, SRP y cohesión van de la mano: cumplir SRP implica alta cohesión).
 4. **Facilita la reutilización del código:** Clases pequeñas y bien enfocadas pueden integrarse en diferentes programas o contextos sin depender de cosas extrañas. En el ejemplo, podríamos usar **ExportadorArchivos** en otro proyecto que necesite guardar textos, sin llevarnos lógica de informes que no aplica.
 
-# Ejercicios prácticos
-
-**Ejercicio:** Observa el siguiente código:
-
-```python
-class Pedido:
-    def __init__(self, items):
-        self.items = items
-    def calcular_total(self):
-        return sum(item['precio'] * item['cantidad'] for item in self.items)
-    def enviar_confirmacion(self, email):
-        total = self.calcular_total()
-        mensaje = f"Su pedido por un total de {total} fue recibido."
-        print(f"Enviando correo a {email}: {mensaje}")
-```
-
-La clase **Pedido** tiene dos responsabilidades claras: calcular el total del pedido y manejar el envío de un correo de confirmación. Esto infringe el SRP. Se te pide refactorizar el diseño de la siguiente manera:
-- Deja a **Pedido** solo la responsabilidad de manejar la lista de ítems y el cálculo del total.
-- Crea una nueva clase, por ejemplo **Notificador**, con la responsabilidad de enviar mensajes de confirmación (podría ser correo electrónico u otro medio en un caso real, pero bastará con que simulemos un envío).
-- Haz que **Pedido** use a **Notificador** en lugar de enviar correos directamente.
-
-Pista: El método `enviar_confirmacion` no pertenece realmente a los datos del pedido, sino a un servicio externo de notificación. Piensa cómo podrías "inyectar" ese servicio en la clase **Pedido** (por ejemplo, pasando un objeto notificador al método o al constructor).
-
-**Solución:**
-
-```python
-class Pedido:
-    def __init__(self, items):
-        self.items = items
-    def calcular_total(self):
-        return sum(item['precio'] * item['cantidad'] for item in self.items)
-
-class Notificador:
-    @staticmethod
-    def enviar_confirmacion(pedido, email):
-        total = pedido.calcular_total()
-        mensaje = f"Su pedido por un total de {total} fue recibido."
-        print(f"Enviando correo a {email}: {mensaje}")
-# Ejemplo de uso
-pedido = Pedido([{'precio': 100, 'cantidad': 2}, {'precio': 50, 'cantidad': 1}])
-Notificador.enviar_confirmacion(pedido, "cliente@example.com")
-```
-
-**Explicación:** Ahora **Pedido** solo conoce sus ítems y puede calcular su total. La clase **Notificador** es la encargada de formatear y "enviar" el mensaje de confirmación. Fíjate que `Notificador.enviar_confirmacion` recibe un objeto pedido y un email. Así, construye el mensaje apoyándose en `pedido.calcular_total()`. Siguiendo SRP, cada clase hace lo suyo: si necesitamos cambiar cómo se envían las confirmaciones (por ejemplo, usar un servicio real de email), iremos a la clase **Notificador**. Si cambia la forma de calcular el total (impuestos, descuentos, etc.), tocaremos la clase **Pedido**. Además, podríamos tener distintos tipos de notificador (email, SMS, etc.) sin tocar **Pedido** para nada – lo cual apunta hacia el principio de abierto/cerrado que veremos en la siguiente clase. Observa también que **Pedido** y **Notificador** están poco acoplados: comparten solo lo necesario (el notificador llama a un método público de **Pedido**). Este ejercicio refuerza cómo SRP nos guía a separar lógicamente el código para mejorar mantenibilidad y claridad.
-
 ---
 
-## Clase 04: Principio Abierto/Cerrado (Open/Closed Principle – OCP)
+# Principio Abierto/Cerrado (Open/Closed Principle – OCP)
 
 El **Principio Abierto/Cerrado** establece que “un artefacto de software (clase, módulo, función, etc.) debe estar abierto para su extensión, pero cerrado para su modificación”. En términos prácticos, significa que deberíamos diseñar nuestras clases y módulos de tal forma que podamos agregar nuevas funcionalidades sin tener que cambiar el código ya existente en esas clases/módulos.
 
 Este principio suena un poco paradójico al inicio, ¿cómo es posible extender algo sin modificarlo? La clave suele estar en usar abstracciones y mecanismos como la herencia, el polimorfismo, la composición o la inyección de dependencias, de modo que el comportamiento pueda ampliarse creando nuevos componentes, en lugar de alterando los ya probados.
 
-**Ejemplo intuitivo:** Supongamos que tenemos una clase que procesa pagos y originalmente solo soporta pagos con tarjeta. Si luego queremos soportar pagos con PayPal, idealmente no deberíamos tener que abrir la clase original y modificar su código (riesgo de introducir bugs en funcionalidad que ya funcionaba). En vez de eso, la solución OCP sería hacer que la clase de pagos acepte alguna interfaz genérica de "método de pago" e introducir un nuevo componente (clase) que implemente esa interfaz.
-
-# Principios SOLID
-
-Los principios SOLID son un conjunto de cinco principios de diseño que buscan mejorar la calidad del software orientado a objetos, facilitando su mantenimiento y evolución. Estos principios son:
-
-- **S**: Single Responsibility Principle (SRP) o Principio de Responsabilidad Única.
-- **O**: Open/Closed Principle (OCP) o Principio Abierto/Cerrado.
-- **L**: Liskov Substitution Principle (LSP) o Principio de Sustitución de Liskov.
-- **I**: Interface Segregation Principle (ISP) o Principio de Segregación de Interfaces.
-- **D**: Dependency Inversion Principle (DIP) o Principio de Inversión de Dependencias.
-
-En este documento exploraremos los principios SRP, OCP, LSP e ISP. El principio DIP será cubierto en otro documento debido a su complejidad y extensión.
-
----
-
-## Clase 01: Principio de Responsabilidad Única (Single Responsibility Principle – SRP)
-
-El **Principio de Responsabilidad Única (SRP)** establece que un módulo, clase o función debe tener una, y solo una, razón para cambiar. En otras palabras, debe haber una única responsabilidad o propósito que justifique la existencia de ese módulo o clase.
-
-Este principio es fundamental para lograr un diseño limpio y mantenible, ya que promueve la cohesión y reduce el acoplamiento entre componentes del software.
-
-### Ejemplo de SRP
-
-Imaginemos una clase `Factura` que se encarga de generar facturas en un sistema de ventas. Si esta clase también incluye métodos para enviar la factura por email, imprimirla y guardarla en la base de datos, estaría violando el SRP, ya que tiene múltiples razones para cambiar: cambios en la lógica de facturación, cambios en el envío de emails, cambios en la impresión, etc.
-
-```python
-class Factura:
-    def __init__(self, cliente, productos):
-        self.cliente = cliente
-        self.productos = productos
-    def calcular_total(self):
-        # Lógica para calcular el total de la factura
-        pass
-    def generar_pdf(self):
-        # Lógica para generar el PDF de la factura
-        pass
-    def enviar_email(self, destinatario):
-        # Lógica para enviar la factura por email
-        pass
-```
-
-#### Problemas del ejemplo
-
-- **Falta de cohesión:** La clase `Factura` tiene responsabilidades mezcladas: cálculo del total, generación del PDF y envío del email.
-- **Dificultad para mantener y evolucionar:** Si se requiere cambiar la forma en que se envían los emails, habrá que modificar la clase `Factura`, aunque el cambio no esté relacionado con la lógica de facturación en sí.
-- **Pruebas complicadas:** Las pruebas unitarias de la clase `Factura` serán más difíciles de realizar debido a sus múltiples responsabilidades.
-
-#### Solución: Aplicando SRP
-
-```python
-class Factura:
-    def __init__(self, cliente, productos):
-        self.cliente = cliente
-        self.productos = productos
-    def calcular_total(self):
-        # Lógica para calcular el total de la factura
-        pass
-class FacturaPDF:
-    def __init__(self, factura):
-        self.factura = factura
-    def generar_pdf(self):
-        # Lógica para generar el PDF de la factura
-        pass
-class EmailSender:
-    def enviar_email(self, destinatario, contenido):
-        # Lógica para enviar el email
-        pass
-```
-
-#### Beneficios de la solución
-
-- **Alta cohesión:** Cada clase tiene una única responsabilidad bien definida.
-- **Bajo acoplamiento:** Las clases están desacopladas y se pueden modificar de forma independiente.
-- **Facilidad para probar:** Las pruebas unitarias son más simples, ya que cada clase tiene un comportamiento específico y predecible.
-
----
-
-## Clase 02: Principio Abierto/Cerrado (Open/Closed Principle – OCP)
-
-El **Principio Abierto/Cerrado (OCP)** establece que un módulo, clase o función debe estar abierto a la extensión, pero cerrado a la modificación. Esto significa que debemos ser capaces de añadir nueva funcionalidad a un sistema sin tener que modificar el código existente.
-
-El OCP se logra generalmente a través de la abstracción, permitiendo que el comportamiento específico se defina en clases o módulos derivados.
-
-### Ejemplo de OCP
-
-Supongamos que tenemos un sistema de pagos que inicialmente solo soporta pagos a través de PayPal. La clase de pagos original se mantiene intocada (cerrada a modificación), pero el sistema en conjunto admite ahora un método de pago nuevo (extensión).
+**Ejemplo intuitivo:** Supongamos que tenemos una clase que procesa pagos y originalmente solo soporta pagos con tarjeta. Si luego queremos soportar pagos con PayPal, idealmente no deberíamos tener que abrir la clase original y modificar su código (riesgo de introducir bugs en funcionalidad que ya funcionaba). En vez de eso, la solución OCP sería hacer que la clase de pagos acepte alguna interfaz genérica de "método de pago" e introducir un nuevo componente (clase) que implemente esa interfaz para PayPal. La clase de pagos original se mantiene intocada (cerrada a modificación), pero el sistema en conjunto admite ahora un método de pago nuevo (extensión).
 
 ```python
 class Pago:
@@ -668,70 +403,8 @@ Otro ejemplo que suele citarse para OCP es el de estrategias algorítmicas: por 
 
 > **Ventaja colateral:** Adherirse a OCP a menudo mejora también DIP e ISP (principios que veremos luego), porque para lograr extensión sin modificar, uno tiende a programar contra abstracciones. En el ejemplo, `imprimir_area` acepta un `Figura` abstracto (interfaz), no una lista de tipos concretos; eso es DIP (depender de abstracción, no de detalles). Y en el caso de las estrategias, definimos interfaces específicas (ISP) para cada familia de comportamiento.
 
-## Ejercicios prácticos
 
-**Ejercicio:** Supongamos que estás diseñando una calculadora básica. Iniciaste con una función que recibe dos números y una operación en texto, realizando así la operación. Por ejemplo:
-
-```python
-def calcular(a, b, operacion):
-    if operacion == "suma":
-        return a + b
-    elif operacion == "resta":
-        return a - b
-    # ...
-```
-
-Esta función viola OCP: si quisieras agregar multiplicación, división, etc., tendrías que modificarla agregando más `elif`. Vamos a refactorizar usando OCP:
-
-- Crea una clase abstracta (o una interfaz informal) `Operacion` con un método `calcular(a, b)`.
-- Implementa varias subclases: `Suma`, `Resta` (y opcionalmente `Multiplicacion`, `Division`), que cada una implemente el método para realizar la operación correspondiente.
-- Escribe una nueva función `calcular_operacion(a, b, operacion_obj)` donde `operacion_obj` es una instancia de alguna de esas clases (por ejemplo, un objeto `Suma`). Esta función llamará a `operacion_obj.calcular(a, b)` internamente. No uses if/elif para distinguir la clase; confía en el polimorfismo.
-- Muestra cómo agregar una nueva operación (por ejemplo, Potenciación) requerirá agregar solo una nueva clase `Potenciacion` sin cambiar el código existente.
-
-> **Pista:** Puedes usar clases con herencia del ABC de Python para formalizar la interfaz `Operacion`, o simplemente usar clases normales sabiendo que todas implementarán `calcular`. Lo importante es el concepto.
-
-**Solución:**
-
-```python
-from abc import ABC, abstractmethod
-class Operacion(ABC):
-    @abstractmethod
-    def calcular(self, a, b):
-        pass
-class Suma(Operacion):
-    def calcular(self, a, b):
-        return a + b
-class Resta(Operacion):
-    def calcular(self, a, b):
-        return a - b
-class Multiplicacion(Operacion):
-    def calcular(self, a, b):
-        return a * b
-class Division(Operacion):
-    def calcular(self, a, b):
-        return a / b if b != 0 else None
-class Potenciacion(Operacion):
-    def calcular(self, a, b):
-        return a ** b
-def calcular_operacion(a, b, operacion_obj):
-    return operacion_obj.calcular(a, b)
-# Ejemplo de uso
-print(calcular_operacion(5, 3, Suma())) # 8
-print(calcular_operacion(5, 3, Resta())) # 2
-print(calcular_operacion(5, 3, Multiplicacion())) # 15
-print(calcular_operacion(5, 3, Division())) # 1.666...
-print(calcular_operacion(2, 3, Potenciacion())) # 8
-```
-
-**Explicación:** Hemos definido una interfaz (abstracta) `Operacion` con el método `calcular(a, b)`. Cada subclase implementa la operación matemática correspondiente. La función de alto nivel `calcular_operacion` recibe un objeto operación y simplemente delega la lógica llamando a `operacion_obj.calcular(a, b)`. Esto es flexible y extensible:
-
-Para agregar cualquier nueva operación, solo creamos una nueva subclase de `Operacion` (como hicimos con `Potenciacion`). No necesitamos modificar la función `calcular_operacion` ni tocar las clases existentes. El código cliente puede operar con la nueva clase inmediatamente: por ejemplo, podríamos llamar `calcular_operacion(2, 8, Potenciacion())` sin cambiar nada más.
-
-Notemos que `calcular_operacion` no tiene ni un if. Está totalmente abierta a extensión (puedo pasarle instancias de nuevas clases `Operacion`) sin tener ningún caso cerrado por tipo.
-
-Este ejercicio refleja OCP: la calculadora queda preparada para admitir nuevas funcionalidades matemáticas sin editar el código ya escrito. Además, el diseño es más limpio y sigue otros principios: cada operación está encapsulada en su clase (SRP), y `calcular_operacion` depende de la abstracción `Operacion` en lugar de conocer detalles concretos (DIP).
-
-# Clase 05: Principio de Sustitución de Liskov (Liskov Substitution Principle – LSP)
+# Principio de Sustitución de Liskov (Liskov Substitution Principle – LSP)
 
 El Principio de Sustitución de Liskov (LSP), enunciado por la profesora Barbara Liskov en 1987, se puede resumir así: “Si S es un subtipo de T, entonces los objetos de tipo T en un programa pueden ser reemplazados por objetos de tipo S sin alterar ninguna de las propiedades deseables del programa (correctitud, realización de la tarea, etc.)”.
 
@@ -805,11 +478,89 @@ Este comportamiento rompe LSP: un `Cuadrado` no puede ser sustituido por `Rectan
 
 **Soluciones:** Reconocer que matemáticamente un cuadrado es un rectángulo, pero en diseño OOP no es un subtipo adecuado si la interfaz de `Rectangulo` permite modificar ancho y alto independientemente. Una solución sería no hacer `Cuadrado` subclase de `Rectangulo`, sino hacerlas hermanas bajo una superclase común `Figura` o `RectanguloBase` que no tenga setters separables. Otra solución más refinada es restringir la mutabilidad: por ejemplo, hacer `Rectangulo` y `Cuadrado` inmutables después de construcción; así un cuadrado no podría cambiar solo un lado sin afectar al otro.
 
-# Clase 06: Principio de Segregación de Interfaces (Interface Segregation Principle – ISP)
+Veamos este ejemplo en código para clarificar:
+```python
+class Rectangulo:
+    def __init__(self, ancho, alto):
+        self.ancho = ancho
+        self.alto = alto
+
+    def set_ancho(self, ancho):
+        self.ancho = ancho
+
+    def set_alto(self, alto):
+        self.alto = alto
+
+    def get_area(self):
+        return self.ancho * self.alto
+
+
+class Cuadrado(Rectangulo):
+    def __init__(self, lado):
+        super().__init__(lado, lado)
+
+    def set_ancho(self, ancho):
+        # Al asignar un lado en el cuadrado, ambos lados cambian
+        super().set_ancho(ancho)
+        super().set_alto(ancho)
+
+    def set_alto(self, alto):
+        super().set_ancho(alto)
+        super().set_alto(alto)
+```
+Ahora probemos la función que duplica el ancho mencionada:
+```python
+def duplicar_ancho(rect):
+    # Duplica el ancho de un rectángulo dado
+    ancho_inicial = rect.ancho
+    rect.set_ancho(ancho_inicial * 2)
+    print("Área original:", ancho_inicial * rect.alto,
+          "Área nueva:", rect.get_area())
+
+# Caso 1: Rectángulo normal
+r = Rectangulo(2, 3)
+duplicar_ancho(r)  # Área original: 6, Área nueva: 12 (correcto, se duplicó)
+
+# Caso 2: Cuadrado usado como Rectángulo
+s = Cuadrado(2)
+duplicar_ancho(s)  # Área original: 4, Área nueva: 16 (¡no se duplicó, se cuadruplicó!)
+```
+Output:
+```python
+Área original: 6 Área nueva: 12
+Área original: 4 Área nueva: 16
+```
+Vemos el fallo en el segundo caso. Este es un claro incumplimiento de LSP. El código que esperaba duplicar el área no funciona para la subclase Cuadrado. Conclusión: la jerarquía está mal diseñada respecto a LSP.
+
+**Qué hacer en este caso?** Una de las recomendaciones es preferir composición a herencia cuando la relación de subtipo no cumpla LSP. Por ejemplo, podríamos hacer que Rectangulo no tenga setters separados y ofrecer un método set_dimensiones(ancho, alto) para reconfigurarlo entero; y hacer que Cuadrado lance excepción si alguien intenta cambiarlo a un rectángulo (no suena muy bien), o directamente no dar opción de cambiar lado una vez creado (inmutabilidad). Pero en muchos materiales concluyen: no hagas que Cuadrado herede de Rectangulo en sistemas orientados a objetos que permitan modificar dimensiones; en su lugar, trata a Cuadrado y Rectangulo como figuras distintas. Por ejemplo, podríamos tener una interfaz FiguraConArea que ambos implementen, pero no forzar una relación de herencia directa.
+
+**Otro ejemplo de violación de LSP**: Subclases que implementan métodos lanzando excepciones no esperadas. Por ejemplo, una clase Coleccion con método agregar(item) y una subclase ColeccionSoloLectura que hereda pero sobreescribe agregar lanzando UnsupportedOperationException. Si alguien tratara polimórficamente una ColeccionSoloLectura como Coleccion y llamara a agregar, reventará. Entonces, quizás ColeccionSoloLectura no debería heredar de Coleccion si no puede cumplir su contrato; podría mejor usar composición (tener internamente una Coleccion pero no exponer métodos de modificación). Este es un caso típico mencionado en literatura: clases que no soportan ciertos métodos de su base rompen LSP.
+
+**Cómo asegurarse de cumplir LSP?**
+- Diseñar con contratos claros: Documenta qué hace cada método de la clase base (precondiciones, postcondiciones, invariantes). Las subclases deben adherirse a ese contrato.
+- Evitar excepciones para casos normales: Si un método en la base promete hacer algo, la subclase no debería, por diseño, tener que invalidarlo o lanzar excepción. Si descubres que tu subclase no puede implementar correctamente algo definido en la base, reconsidera la herencia.
+- **Principio de sustitución contravariante/covariante de tipos:** Es un tema avanzado, pero básicamente, si la superclase acepta un parámetro de tipo muy general, la subclase no debería restringirlo a un subtipo más específico (precondición más fuerte). Y si la superclase retorna algo, la subclase podría retornar un subtipo (lo cual es más permisivo, eso está bien en LSP porque es covariante con tipos de retorno).
+
+En pocas palabras, LSP nos recuerda que la herencia implica un contrato que va más allá de la sintaxis: las subclases deben comportarse de forma coherente con lo esperado.
+
+
+# Principio de Segregación de Interfaces (Interface Segregation Principle – ISP)
 
 ## Introducción al ISP
 
-El Principio de Segregación de la Interfaz (Interface Segregation Principle) nos indica que no debemos forzar a los clientes (clases que usan una interfaz) a depender de métodos que no utilizan. En palabras de Robert C. Martin (creador de SOLID): "No se debe obligar a los clientes a depender de métodos que no utilizan. Las interfaces pertenecen a los clientes, no a las jerarquías". Esto significa que las interfaces (o clases base abstractas) deben diseñarse pensando en las necesidades específicas de los clientes (quienes las usan), evitando agrupar en una sola interfaz métodos que ciertos clientes no van a necesitar.
+El Principio de Segregación de Interfaces (Interface Segregation Principle, ISP) es otro de los principios SOLID que busca mejorar la calidad del diseño orientado a objetos. ISP establece que:
+
+**"Los clientes no deben verse obligados a depender de interfaces que no utilizan."**
+
+En otras palabras, una clase no debería verse forzada a implementar métodos de una interfaz que no necesita. Este principio es especialmente relevante en lenguajes como Python, donde la verificación de tipos y la existencia de métodos se controlan en tiempo de ejecución.
+
+### Problemas que aborda el ISP
+
+El ISP busca evitar los problemas que surgen cuando una interfaz grande y monolítica obliga a las clases a implementar métodos que no utilizan. Esto puede llevar a:
+
+- **Clases con métodos innecesarios:** Las clases terminan teniendo métodos que no usan, simplemente porque la interfaz los incluye.
+- **Implementaciones vacías o excepciones:** Para cumplir con la interfaz, las clases se ven obligadas a implementar métodos que no tienen sentido para su comportamiento, lo que puede llevar a excepciones en tiempo de ejecución.
+- **Dificultad para entender el código:** Las interfaces grandes hacen que sea más difícil para los desarrolladores entender qué métodos son realmente relevantes para una clase en particular.
 
 En otras palabras, si una clase no utiliza algunos métodos o atributos de una interfaz, entonces dicha interfaz está mal diseñada. Debemos segregar (dividir) esas funcionalidades en interfaces más específicas para que cada clase implemente solo lo que realmente necesita. Así logramos interfaces más pequeñas y enfocadas, alineadas con un único propósito o rol.
 
@@ -824,6 +575,8 @@ En Python, formalmente no existe la palabra clave `interface` como en Java u otr
 - **Interfaz informal:** En Python hablamos de "interfaz informal" cuando definimos un conjunto de métodos esperados sin usar mecanismos estrictos de enforcement (sin obligar su implementación mediante el lenguaje). Python es un lenguaje de tipado dinámico con duck typing, lo que significa que no necesitamos una declaración explícita de que una clase implementa una interfaz; basta con que proporcione ciertos métodos. Por ejemplo, si una clase define el método `__len__`, entonces se comporta como una secuencia o colección medible (implementa "informalmente" la interfaz de secuencia en lo referente a la longitud). Otro ejemplo: si creamos una clase que tiene métodos `write()` y `read()`, cualquier código que espere un "objeto archivo" podría aceptarla aunque no herede de ninguna clase base `Archivo`. Esta es una interfaz informal: nuestro objeto sigue un protocolo esperado (tiene métodos con ciertos nombres), y por convención o documentación decimos que cumple esa interfaz.
 
 **Ventaja:** Las interfaces informales aprovechan la flexibilidad de Python. Podemos definir clases ligeras sin necesidad de una jerarquía compleja. Cualquier objeto que cumpla con la interfaz esperada (es decir, tenga los métodos necesarios) puede usarse en su lugar. Este estilo sigue el principio "Duck Typing" ("si camina como pato y suena como pato, es un pato").
+
+**Desventaja:** No hay una verificación automática por parte del lenguaje. Si a un objeto le falta un método esperado, el error solo se descubrirá en tiempo de ejecución (cuando se intente usar). Además, al leer el código no es obvio qué interfaz "informal" espera una función o método, más allá de la documentación o convenciones de nombres.
 
 - **Interfaz formal:** Se refiere a la definición explícita de interfaces mediante clases abstractas (por ejemplo, usando el módulo `abc` de Python). Aquí, declaramos métodos abstractos que deben ser implementados por las subclases. Si una clase no implementa estos métodos, no puede ser instanciada. Este enfoque es más rígido y asegura que ciertas estructuras y métodos existan en las clases derivadas.
 
@@ -879,59 +632,6 @@ class NotificacionPush:
 
 Ahora, cada clase de notificación implementa solo lo que necesita. Si alguien quiere enviar solo SMS, implementa `NotificacionSMS` y no tiene que preocuparse por los otros métodos.
 
----
-
-# Ejercicios prácticos
-
-**Ejercicio:** Supongamos que estás diseñando un sistema de gestión de documentos. Tienes una clase `Documento` que tiene métodos para `imprimir`, `guardar_en_pdf` y `enviar_por_email`. Sin embargo, no todos los documentos necesitan ser enviados por email, y algunos podrían necesitar ser guardados en otros formatos.
-
-1. Identifica si hay violaciones a SRP e ISP en este diseño.
-2. Propón una solución que cumpla con SRP e ISP.
-
-**Solución propuesta:**
-
-```python
-class Documento:
-    def __init__(self, contenido):
-        self.contenido = contenido
-class Impresora:
-    def imprimir(self, documento: Documento):
-        pass
-class GuardarComoPDF:
-    def guardar(self, documento: Documento):
-        pass
-class EnviarPorEmail:
-    def enviar(self, documento: Documento, destinatario):
-        pass
-```
-
-**Explicación de la solución:** 
-
-- Separamos las responsabilidades: `Documento` solo maneja contenido. `Impresora`, `GuardarComoPDF` y `EnviarPorEmail` manejan acciones específicas.
-- Cada clase tiene una única razón para cambiar. Por ejemplo, si solo cambia el formato de PDF, solo se modifica `GuardarComoPDF`.
-- Cumplimos con ISP porque nadie está obligado a implementar métodos que no necesita. Si alguien quiere enviar documentos por email, solo usa `EnviarPorEmail`.
-
-Este ejercicio refleja los principios de SRP e ISP al tener clases con responsabilidades bien definidas y evitando interfaces monolíticas.
-
----
-
-# Clase 06: Principio de Segregación de Interfaces (Interface Segregation Principle – ISP)
-
-## Introducción al ISP
-
-El Principio de Segregación de Interfaces (Interface Segregation Principle, ISP) es otro de los principios SOLID que busca mejorar la calidad del diseño orientado a objetos. ISP establece que:
-
-**"Los clientes no deben verse obligados a depender de interfaces que no utilizan."**
-
-En otras palabras, una clase no debería verse forzada a implementar métodos de una interfaz que no necesita. Este principio es especialmente relevante en lenguajes como Python, donde la verificación de tipos y la existencia de métodos se controlan en tiempo de ejecución.
-
-### Problemas que aborda el ISP
-
-El ISP busca evitar los problemas que surgen cuando una interfaz grande y monolítica obliga a las clases a implementar métodos que no utilizan. Esto puede llevar a:
-
-- **Clases con métodos innecesarios:** Las clases terminan teniendo métodos que no usan, simplemente porque la interfaz los incluye.
-- **Implementaciones vacías o excepciones:** Para cumplir con la interfaz, las clases se ven obligadas a implementar métodos que no tienen sentido para su comportamiento, lo que puede llevar a excepciones en tiempo de ejecución.
-- **Dificultad para entender el código:** Las interfaces grandes hacen que sea más difícil para los desarrolladores entender qué métodos son realmente relevantes para una clase en particular.
 
 ## Ejemplo de mala práctica (violación de ISP)
 
@@ -1021,7 +721,7 @@ Este diseño segregado es más limpio y seguro:
 - Las clases son más simples, enfocadas en lo que hacen.
 - Si alguna funcionalidad cambia (por ejemplo la forma de nadar), solo afecta a las clases que realmente la usan (las que implementan **Nadador**), sin impacto en las demás.
 
-# Clase 07: Principio de Inversión de Dependencias (Dependency Inversion Principle – DIP)
+# Principio de Inversión de Dependencias (Dependency Inversion Principle – DIP)
 
 ## Introducción al DIP
 
