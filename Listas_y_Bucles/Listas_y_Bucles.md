@@ -171,6 +171,7 @@ while temporizador > 0:
 
 print("¡El temporizador ha finalizado!")
 ```
+
 ### BUCLE `FOR`
 
 El bucle `for` se utiliza para iterar sobre una secuencia (como una
@@ -352,7 +353,7 @@ print(numeros_pares)
 # Salida:
 # [2, 4, 6, 8, 10]
 ```
-## Comprensión de Listas
+## Compresión de Listas
 
 La comprensión de listas nos permite crear listas de manera más concisa.
 Aquí tienes un ejemplo:
@@ -361,7 +362,7 @@ Aquí tienes un ejemplo:
 ```python
 numeros_cuadrados = []
 
-for valor in range(1, 11): # irá del 0 al 10
+for valor in range(1, 11): # irá del 1 al 10
     cuadrado = valor**2
     numeros_cuadrados.append(cuadrado)
 
@@ -370,7 +371,7 @@ print(numeros_cuadrados)
 # Salida:
 # [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 ```
-### Declaración comprimida (comprensión de listas):
+### Declaración comprimida (compresión de listas):
 ```python
 numeros_cuadrados = [valor**2 for valor in range(1, 11)]
 
@@ -401,6 +402,7 @@ Podemos acceder a partes de una lista usando slicing:
 for digito in frase[::+1]: # el slicing es [::+1]
     pass
 ```
+
 ```python
 digitos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
@@ -487,6 +489,7 @@ print(type(datos_alumnos[0]))
 # ['David', 27]
 # <class 'list'>
 ```
+
 **EJEMPLO:**
 
 En este ejemplo tenemos una lista de sublistas con 4 elementos en las
@@ -494,11 +497,12 @@ sublistas, y tenemos que seleccionar la parte de nombres y de notas.
 Recorremos la lista de sublistas y cogiendo el primer elemento (alumno)
 con indice [0] lo atribuimos a nombre, y decimos que en la misma
 sublista alumno con indice [1:] lo atribuimos a notas, ponemos 1: para
-decirlo que todo lo demas que hay a partir del 1 lo atribuimos a notas,
+decir que todo lo demas que hay a partir del 1 lo atribuimos a notas,
 si solo hubiese una nota pondriamos notas = alumno[1].
 
 Luego vemos dos maneras de formatear los decimales, segun si estamos en
 un print ya formateado o no.
+
 ```python
 datos_alumnos = [["Gerard", 7, 8, 6], ["Coline", 8, 9, 9], ["David", 5, 8, 5]]
 
@@ -515,6 +519,7 @@ nota_media_clase = sum(notas_clase) / len(notas_clase) # Sumamos las notas de la
 
 print("La nota media de la clase es de {:.2f}".format(nota_media_clase)) # otra manera de redondear sin estar dentro del print(f"")
 ```
+
 ## Matrices
 
 En programación, una matriz es una estructura de datos bidimensional que

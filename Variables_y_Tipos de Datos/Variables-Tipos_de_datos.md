@@ -223,7 +223,7 @@ print(nombre[0]) # Salida: J
 ```
 ## 8. Números y Operaciones Aritméticas
 
--   **Integer o Enteros:** +, -, \*, /, \*\* (potencia), % (módulo).
+-   **Integer o Enteros:** +, -, *, /, ** (potencia), % (módulo).
 
 -   **Floats o Flotantes:** Números decimales.
 
